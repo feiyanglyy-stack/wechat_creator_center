@@ -1,0 +1,1237 @@
+/* Premium CSS Design System - GPT谋士 公众号预览平台 */
+
+:root {
+    /* Color Palette - Cyber Dark Base */
+    --bg-primary: #0a0a0c;
+    --bg-secondary: #121217;
+    --bg-card: rgba(22, 22, 30, 0.7);
+    --border-color: rgba(255, 255, 255, 0.08);
+    
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --text-link: #38bdf8;
+    
+    /* Brand Accent Colors */
+    --accent-orange: #f97316; /* Claude Coral */
+    --accent-orange-glow: rgba(249, 115, 22, 0.25);
+    --accent-gold: #fbbf24;
+    --accent-cyan: #06b6d4;
+    --accent-cyan-glow: rgba(6, 182, 212, 0.2);
+    
+    /* WeChat Simulator Light (Default WeChat Style) */
+    --sim-light-bg: #ffffff;
+    --sim-light-text: #333333;
+    --sim-light-meta: #888888;
+    --sim-light-link: #576b95;
+    --sim-light-quote-bg: #f7f7f7;
+    --sim-light-quote-border: #f97316;
+    
+    /* WeChat Simulator Dark (WeChat Dark Mode) */
+    --sim-dark-bg: #191919;
+    --sim-dark-text: #dfdfdf;
+    --sim-dark-meta: #707070;
+    --sim-dark-link: #7a8ea9;
+    --sim-dark-quote-bg: #222222;
+    --sim-dark-quote-border: #f97316;
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.15s ease-out;
+}
+
+/* Light Mode Global overrides (For the global app, not the simulator) */
+body.light-mode {
+    --bg-primary: #f3f4f6;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --text-link: #0284c7;
+    --accent-orange-glow: rgba(249, 115, 22, 0.15);
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: var(--transition-smooth);
+}
+
+/* App Layout Grid */
+.app-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* App Header styling */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px var(--accent-orange-glow));
+    animation: pulse 3s infinite alternate;
+}
+
+.logo-text h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Outfit', sans-serif;
+}
+
+.logo-text p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Main Grid Layout */
+.app-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+    flex-grow: 1;
+}
+
+@media (max-width: 1024px) {
+    .app-main {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Section Common Titles */
+.section-title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-title-bar h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Premium Card Styles */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: var(--transition-smooth);
+}
+
+.card:hover {
+    border-color: rgba(249, 115, 22, 0.25);
+    box-shadow: 0 8px 36px 0 rgba(249, 115, 22, 0.08);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+}
+
+.card .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+/* Button UI Components */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-quick);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-orange) 0%, #ea580c 100%);
+    color: white;
+    box-shadow: 0 4px 14px 0 rgba(249, 115, 22, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px 0 rgba(249, 115, 22, 0.45);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-glow {
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, #0891b2 100%);
+    color: white;
+    box-shadow: 0 4px 14px 0 rgba(6, 182, 212, 0.3);
+}
+
+.btn-glow:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px 0 rgba(6, 182, 212, 0.5);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+
+.btn-icon {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-quick);
+}
+
+.btn-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+/* Tabs system */
+.tabs-card {
+    padding: 6px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+}
+
+.tab-header {
+    display: flex;
+    gap: 4px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-quick);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tab-btn:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.tab-btn.active {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Tab contents styling */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Form UI components */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--text-muted);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    outline: none;
+    transition: var(--transition-quick);
+}
+
+.form-control:focus {
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 0 3px var(--accent-orange-glow);
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+select.form-control {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 36px;
+}
+
+/* Stats Section grid */
+.stats-card {
+    padding-bottom: 10px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.stat-box:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-cyan);
+    background: rgba(6, 182, 212, 0.05);
+}
+
+.stat-val {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.stat-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Alerts box */
+.info-alert {
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 20px;
+}
+
+.info-alert p {
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    line-height: 1.4;
+}
+
+/* Assets Library Grid */
+.assets-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.asset-card {
+    display: flex;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+
+.asset-card:hover {
+    border-color: var(--accent-orange);
+    background: rgba(255,255,255,0.04);
+}
+
+.asset-thumb {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.asset-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.asset-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.asset-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.asset-desc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+.asset-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+.asset-actions .btn {
+    line-height: 1;
+}
+
+/* Copy Panel style */
+.copy-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.copy-options .btn {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+}
+
+.copy-preview-area {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.copy-preview-area label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.copy-preview-area textarea {
+    height: 150px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    resize: none;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* UI lists */
+.tips-list, .tips-list li {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-left: 14px;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.tips-list li strong {
+    color: var(--text-main);
+}
+
+/* WeChat Simulator Frame styling */
+.simulator-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-frame-container {
+    width: 390px;
+    height: 820px;
+    background: #000;
+    border-radius: 46px;
+    padding: 12px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+                0 0 0 4px #26262b;
+}
+
+.notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 30px;
+    background: #000;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 10;
+}
+
+.mobile-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding: 44px 18px 24px 18px;
+    scrollbar-width: none; /* Hide scrollbar for clean UI */
+    transition: var(--transition-smooth);
+}
+
+.mobile-screen::-webkit-scrollbar {
+    display: none;
+}
+
+/* WeChat Screen Themes */
+.mobile-screen.sim-light {
+    background-color: var(--sim-light-bg);
+    color: var(--sim-light-text);
+}
+
+.mobile-screen.sim-dark {
+    background-color: var(--sim-dark-bg);
+    color: var(--sim-dark-text);
+}
+
+/* WeChat Native Typography rules inside Simulator */
+.wechat-article-header {
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+.wechat-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.sim-light .wechat-title {
+    color: #111;
+}
+
+.sim-dark .wechat-title {
+    color: #dfdfdf;
+}
+
+.wechat-meta {
+    font-size: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.sim-light .wechat-meta {
+    color: var(--sim-light-meta);
+}
+
+.sim-dark .wechat-meta {
+    color: var(--sim-dark-meta);
+}
+
+.wechat-author {
+    color: inherit;
+}
+
+.wechat-account {
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sim-light .wechat-account {
+    color: var(--sim-light-link);
+}
+
+.sim-dark .wechat-account {
+    color: var(--sim-dark-link);
+}
+
+.wechat-article-body {
+    font-size: 0.95rem;
+    line-height: 1.68;
+    letter-spacing: 0.6px;
+}
+
+.sim-light .wechat-article-body {
+    color: #333333;
+}
+
+.sim-dark .wechat-article-body {
+    color: #b2b2b2;
+}
+
+/* Paragraph spacing */
+.wechat-article-body p {
+    margin-top: 0;
+    margin-bottom: 16px;
+    text-align: justify;
+    text-indent: 0;
+    padding-left: 0;
+    margin-left: 0;
+    word-break: break-word;
+}
+
+.wechat-article-body p.intro-text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.wechat-article-body strong {
+    font-weight: 700;
+}
+
+.sim-light .wechat-article-body strong {
+    color: #000000;
+}
+
+.sim-dark .wechat-article-body strong {
+    color: #ffffff;
+}
+
+/* Custom Highlight Quote Box */
+.wechat-quote-box {
+    margin: 24px 0;
+    padding: 16px;
+    border-left: 4px solid var(--accent-orange);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.sim-light .wechat-quote-box {
+    background-color: var(--sim-light-quote-bg);
+}
+
+.sim-dark .wechat-quote-box {
+    background-color: var(--sim-dark-quote-bg);
+}
+
+/* Quote Box Cyan Theme Overrides */
+.wechat-quote-box.cyan {
+    border-left-color: var(--accent-cyan);
+}
+
+.sim-light .wechat-quote-box.cyan {
+    background-color: #ecfeff;
+}
+
+.sim-dark .wechat-quote-box.cyan {
+    background-color: #112b32;
+}
+
+/* Quote Box Nested Paragraph Classes */
+.quote-title-orange {
+    margin: 0 0 6px 0 !important;
+    color: #ea580c !important;
+    font-weight: bold !important;
+    line-height: 1.6 !important;
+}
+
+.quote-body-orange {
+    margin: 0 !important;
+    color: #4b5563 !important;
+    line-height: 1.6 !important;
+}
+
+.quote-title-cyan {
+    margin: 0 0 6px 0 !important;
+    color: #0891b2 !important;
+    font-weight: bold !important;
+    line-height: 1.6 !important;
+}
+
+.quote-body-cyan {
+    margin: 0 !important;
+    color: #374151 !important;
+    line-height: 1.7 !important;
+}
+
+.quote-body-cyan.spaced {
+    margin-top: 6px !important;
+}
+
+.sim-dark .quote-title-orange {
+    color: #f97316 !important;
+}
+
+.sim-dark .quote-body-orange {
+    color: #d1d5db !important;
+}
+
+.sim-dark .quote-title-cyan {
+    color: #22d3ee !important;
+}
+
+.sim-dark .quote-body-cyan {
+    color: #e5e7eb !important;
+}
+
+/* Image containers with captions */
+.wechat-img-container {
+    margin: 18px 0;
+    text-align: center;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.wechat-img-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    transition: var(--transition-quick);
+}
+
+.wechat-img-container img:hover {
+    transform: scale(1.02);
+}
+
+.img-caption {
+    display: block;
+    font-size: 0.72rem;
+    margin-top: 6px;
+    font-style: italic;
+}
+
+.sim-light .img-caption {
+    color: #888888;
+}
+
+.sim-dark .img-caption {
+    color: #666666;
+}
+
+/* WeChat Section Title H2 */
+.wechat-h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 32px 0 16px 0;
+    border-bottom: 2px solid var(--accent-orange);
+    padding-bottom: 4px;
+    display: block;
+}
+
+.sim-light .wechat-h2 {
+    color: #000;
+}
+
+.sim-dark .wechat-h2 {
+    color: #fff;
+}
+
+.wechat-h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 20px 0 10px 0;
+}
+
+.sim-light .wechat-h3 {
+    color: #111;
+}
+
+.sim-dark .wechat-h3 {
+    color: #eee;
+}
+
+.wechat-list {
+    margin-bottom: 16px;
+    padding-left: 20px;
+}
+
+.wechat-list li {
+    margin-bottom: 8px;
+    list-style-type: square;
+}
+
+/* WeChat Table styling */
+.wechat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.wechat-table th, .wechat-table td {
+    padding: 8px 10px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.sim-light .wechat-table th {
+    background-color: #f7f7f7;
+    color: #111;
+    font-weight: 600;
+}
+
+.sim-dark .wechat-table th {
+    background-color: #222;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* WeChat Divider */
+.wechat-hr {
+    border: none;
+    height: 1px;
+    margin: 30px 0;
+}
+
+.sim-light .wechat-hr {
+    background-color: #e5e7eb;
+}
+
+.sim-dark .wechat-hr {
+    background-color: #374151;
+}
+
+.wechat-footer {
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--accent-orange) !important;
+}
+
+.wechat-bottom-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    margin-top: 30px;
+    border-top: 1px dashed rgba(128, 128, 128, 0.2);
+    padding-top: 14px;
+}
+
+.sim-light .wechat-bottom-info {
+    color: #999;
+}
+
+.sim-dark .wechat-bottom-info {
+    color: #666;
+}
+
+.wechat-bottom-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.wechat-bottom-actions span {
+    cursor: pointer;
+}
+
+/* Image Lightbox viewer modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition-quick);
+}
+
+.close-lightbox:hover {
+    color: var(--accent-orange);
+}
+
+/* Toast Message */
+.toast {
+    position: fixed;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(22, 22, 30, 0.9);
+    border: 1px solid var(--accent-cyan);
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    z-index: 150;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    pointer-events: none;
+    opacity: 0;
+    transition: bottom 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+.toast.show {
+    bottom: 30px;
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+/* --- Block-Based Editor Card Styling --- */
+.block-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: var(--transition-smooth);
+}
+
+.block-card:hover {
+    border-color: rgba(6, 182, 212, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.block-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.block-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.block-badge.paragraph { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.block-badge.h2 { background: rgba(249, 115, 22, 0.15); color: #f97316; }
+.block-badge.h3 { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+.block-badge.quote-orange { background: rgba(234, 88, 12, 0.15); color: #ea580c; }
+.block-badge.quote-cyan { background: rgba(6, 182, 212, 0.15); color: #06b6d4; }
+.block-badge.image { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+.block-badge.video { background: rgba(236, 72, 153, 0.15); color: #ec4899; }
+.block-badge.table { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+
+.block-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.block-act-btn {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: var(--transition-quick);
+}
+
+.block-act-btn:hover {
+    background: rgba(255,255,255,0.15);
+    color: var(--text-main);
+    border-color: rgba(255,255,255,0.25);
+}
+
+.block-act-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.block-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.block-textarea {
+    width: 100%;
+    min-height: 52px;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-main);
+    outline: none;
+    resize: vertical;
+    transition: var(--transition-quick);
+}
+
+.block-textarea:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 2px var(--accent-cyan-glow);
+}
+
+.block-media-upload {
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    background: rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: var(--transition-quick);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.block-media-upload:hover {
+    border-color: var(--accent-cyan);
+    background: rgba(6, 182, 212, 0.04);
+}
+
+.block-media-upload span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.block-media-preview {
+    width: 100%;
+    max-height: 120px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 6px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    background: #000;
+}
+
+.block-media-preview img, .block-media-preview video {
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* --- Simulator Video Player Styling --- */
+.wechat-video-container {
+    margin: 18px 0;
+    width: 100%;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background-color: #000000;
+    aspect-ratio: 16/9;
+}
+
+.wechat-video-container video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.wechat-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.wechat-video-overlay.playing {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wechat-play-btn {
+    width: 52px;
+    height: 52px;
+    background: rgba(0,0,0,0.7);
+    border: 1.5px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.wechat-play-btn:hover {
+    transform: scale(1.08);
+}
+
+/* --- AI Copilot & Credential Form Styling --- */
+.ai-suggested-item:hover {
+    border-color: var(--accent-gold) !important;
+    background: rgba(251, 191, 36, 0.08) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.05);
+}
+
+.ai-chat-message-user, .ai-chat-message-ai {
+    animation: aiSlideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes aiSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ai-settings-details[open] summary {
+    color: var(--text-main) !important;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+}
+

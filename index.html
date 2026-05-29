@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谋士智能创作中心 · 微信公众号图文预览系统</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-icon">🦊</span>
+                <div class="logo-text">
+                    <h1>谋士智能创作中心</h1>
+                    <p>微信公众号高级图文预览、段落编辑与一键复制系统</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="globalThemeToggle" class="btn btn-secondary">
+                    <span class="icon">🌓</span> 切换深/浅色模式
+                </button>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <!-- Left: WeChat Mobile Simulator -->
+            <section class="simulator-section">
+                <div class="section-title-bar">
+                    <h2>📱 微信端排版效果预览</h2>
+                    <div class="sim-controls">
+                        <button id="simThemeToggle" class="btn-icon" title="切换模拟器夜间模式">🌙</button>
+                    </div>
+                </div>
+                
+                <div class="mobile-frame-container">
+                    <div class="notch"></div>
+                    <div class="mobile-screen" id="mobileScreen">
+                        
+                        <!-- WeChat Article Header -->
+                        <div class="wechat-article-header">
+                            <h1 id="wechatTitle" class="wechat-title">Rust 强力注入！Pydantic V3 暴涨 20 倍性能，数据工作流迎来“骨架重塑”？</h1>
+                            
+                            <div class="wechat-meta">
+                                <span class="wechat-date" id="metaDate">2026-05-30</span>
+                                <span class="wechat-author" id="metaAuthor">作者名</span>
+                                <a href="javascript:void(0);" class="wechat-account">我的公众号</a>
+                                <span class="wechat-platform">发表于北京</span>
+                            </div>
+                        </div>
+
+                        <!-- WeChat Article Body -->
+                        <div class="wechat-article-body" id="articleBody">
+                            
+                            <!-- Cover Image -->
+                            <div class="wechat-img-container">
+                                <img src="data_orchestration_cover.png" alt="Orchestration Cover" id="bodyCoverImg">
+                                <span class="img-caption">图1：Dagster & Prefect 现代化编排与 Pydantic 强类型验证原理</span>
+                            </div>
+
+                            <!-- Intro -->
+                            <p class="intro-text">
+                                如果说高性能计算引擎（如 Polars）是现代化数据实验室中的“烈火”，那么工作流编排（Orchestration）就是维系整个实验室流转的<strong>“钢筋骨架”</strong>。
+                            </p>
+                            <p>
+                                进入 2026 年，单纯依靠几行凌乱的 Python 脚本或“命令式 DAG”堆砌起来的数据管道，已根本无法支撑起工业级的智能分析需求。我们正在见证一场从“过程流”向<strong>“声明式资产（SDA, Software-Defined Assets）”</strong>的全面范式转移。
+                            </p>
+                            
+                            <!-- Highlight Box -->
+                            <div class="wechat-quote-box">
+                                <p class="quote-title-orange">💡 架构深思：</p>
+                                <p class="quote-body-orange">为什么这至关重要？因为在海量智能数据时代，如果把未经清洗和严格校验的脏数据粗暴地喂给计算引擎，会造成灾难性的系统崩溃。我们不仅需要完美的秩序协调者，更需要在数据流动的每一比特中，植入绝对的安全与验证。“类型炼金术”与“资产编排”由此诞生。</p>
+                            </div>
+
+                            <!-- Section 1 -->
+                            <h2 class="wechat-h2">一、 类型炼金 — Pydantic V3 的 Rust 铁骨</h2>
+                            <p>
+                                在 Python 类型校验的演进史上，最新发布的 <strong>Pydantic V3</strong> 标志着一个划时代的分水岭。它不再仅仅是一个普通的 Python 工具库，而是一个完全封装在 Python 外壳下的 <strong>Rust 极速验证引擎</strong>。
+                            </p>
+                            
+                            <!-- Rust Core Image -->
+                            <div class="wechat-img-container">
+                                <img src="pydantic_rust_core.png" alt="Pydantic Rust Core">
+                                <span class="img-caption">图2：由 Rust 接管底层的 Pydantic V3 二进制高安全验证内核</span>
+                            </div>
+
+                            <p>
+                                <strong>告别传统的 C 扩展编译</strong>，Pydantic V3 的底层核心全部由 Rust 原生重构：
+                            </p>
+
+                            <ul class="wechat-list">
+                                <li><strong>20倍性能狂飙：</strong> 在处理千万级超大规模 JSON/Log 数据流的严格验证时，Rust 的并行和零开销抽象实现了毫秒级响应，速度较 V1 暴涨 20 倍。</li>
+                                <li><strong>Alias 重映射与 AliasPath：</strong> 新增 <code>AliasPath("raw", "fin", "rev")</code> 级联映射机制，即使前台传入的脏 JSON 结构层级多变，也能零成本自动抽取并转换。</li>
+                                <li><strong>Strict（严格验证）协议：</strong> 彻底避免 Python 隐式类型转换（如将字符串 <code>"123"</code> 自动转为数字 <code>123</code>），确保内存中的数据干净纯粹。</li>
+                                <li><strong>零延迟缓存计算字段：</strong> 升级的 <code>@computed_field</code> 支持二进制级别的缓存机制，保证大型分析计算零开销。</li>
+                            </ul>
+
+                            <!-- Section 2 -->
+                            <h2 class="wechat-h2">二、 新手友好版：5岁孩子都能懂的“数据交响乐”</h2>
+                            <p>
+                                如果您觉得这些专业术语有点高冷，别担心！这里为您提供了一份直观的“新手路线图”和场景化比喻：
+                            </p>
+                            
+                            <!-- Woodland Roadmap Image -->
+                            <div class="wechat-img-container">
+                                <img src="woodland_roadmap.png" alt="Woodland Learning Path">
+                                <span class="img-caption">图3：从萌新到专家——森林漫步式的“类型与编排”学习进化路径</span>
+                            </div>
+
+                            <div class="wechat-quote-box cyan">
+                                <p class="quote-title-cyan">🌲 场景直观比喻：</p>
+                                <p class="quote-body-cyan">以前做数据分析，就像在<b>混乱无序的工地</b>上盖临时违章建筑。只要有一块砖的形状不对，整座大楼就会瞬间坍塌。这就是“类型不匹配”导致崩溃。</p>
+                                <p class="quote-body-cyan spaced">现在，我们搬进了<b>自动化数字示范工厂</b>。原材料进入流水线前，会有铁面无私的<b>“硬核安检员”（Pydantic V3）</b>用激光扫描仪检测每一块原料的格式是否精准；而<b>“交响乐指挥家”（Orchestration）</b>则在中央大屏幕前挥动指挥棒，保证每一个生产工序有序交接。最终，我们生产出的是一块块标准的<b>“黄金资产”（Software-Defined Assets）</b>。</p>
+                            </div>
+
+                            <!-- Section 3 -->
+                            <h2 class="wechat-h2">三、 秩序博弈 — Dagster vs Prefect 的巅峰对决</h2>
+                            <p>
+                                在 2026 年的编排舞台上，两位核心巨头各自完成了自己终极的进化跃迁。Dagster 走向了“秩序的巅峰”，而 Prefect 拥抱了“动态的极致”。
+                            </p>
+                            
+                            <h3 class="wechat-h3">1. Dagster：声明式资产 (Software-Defined Assets)</h3>
+                            <p>
+                                Dagster 推翻了传统的“任务依赖（A 任务执行完跑 B 任务）”的命令式逻辑，提出了<strong>声明式资产（SDA）</strong>。
+                            </p>
+                            <p>
+                                在代码中，<strong>血缘关系是代码的一部分，而非后期生成的图表</strong>。开发人员定义的是“这个数据资产应该由哪些上游资产算出”，Dagster 则在底层自动处理调度。它通过按资产物化计费的商业模式，取得了巨大的行业成功。
+                            </p>
+
+                            <h3 class="wechat-h3">2. Prefect 3.0：AI Agent 后端的持久化执行</h3>
+                            <p>
+                                相比之下，Prefect 3.0 则利用 <strong>Pydantic V3</strong> 彻底重构了其分布式状态机。
+                            </p>
+                            <p>
+                                它在行业内首次引入了<strong>分布式事务语义与“原子回滚”</strong>。更重要的是，它与 <strong>Pydantic AI</strong> 达成了前所未有的深度集成，成为 2026 年主流自主 Agent 架构的默认异步编排后端，实现丝滑、动态且极具容错的工作流执行。
+                            </p>
+
+                            <h3 class="wechat-h3">3. 2026 编排技术选型矩阵</h3>
+
+                            <table class="wechat-table">
+                                <thead>
+                                    <tr>
+                                        <th>对比维度</th>
+                                        <th>Dagster (声明式资产驱动)</th>
+                                        <th>Prefect (动态任务驱动)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>核心哲学</strong></td>
+                                        <td>数据资产是第一公民 (SDA)</td>
+                                        <td>工作流是第一公民 (Flows)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>数据血缘</strong></td>
+                                        <td>原生强关联 (代码即血缘)</td>
+                                        <td>运行时自动观测生成</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>AI Agent 兼容性</strong></td>
+                                        <td>适合规则严苛的集团数据治理</td>
+                                        <td>🥇 AI 智能体首选后端 (支持 Pydantic AI)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>核心机制</strong></td>
+                                        <td>Rust 元数据索引分析引擎</td>
+                                        <td>Pydantic V3 二进制状态模型</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>学习曲线</strong></td>
+                                        <td>较陡 (需打破任务流惯性思维)</td>
+                                        <td>极度平缓 (纯 Python 装饰器即开即用)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p>
+                                <strong>💡 2026 终极选型建议：</strong>
+                                经过充分的工业洗礼，我们在 2026 年的行业结论是：<strong>“中后台数据治理选 Dagster，前台 Agent 应用选 Prefect”</strong>。
+                            </p>
+                            <p>
+                                Dagster 的 SDA 声明式模型是企业资产治理的救星，它能严丝合缝地证明每一行报表的血统；而 Prefect 3.0 则以无与伦比的灵活性、极简的 Python 装饰器体验和对 Pydantic 的原生适配，成为构建智能流监测、AI 代理自动化流水线的黄金骨架。
+                            </p>
+
+                            <!-- Section 4 -->
+                            <h2 class="wechat-h2">四、 本章结语与下期预告</h2>
+                            <p>
+                                至此，我们已经重构了数据的“铁骨”（编排系统）与“灵魂”（Pydantic 类型验证）。然而，完美而冰冷的逻辑如果没有优美的视觉触达，它依然只是一堆沉寂在数据库中的二进制字节。
+                            </p>
+                            <p>
+                                <strong>在下一章“视觉先知”中</strong>，我们将迎来 **Streamlit 2.0 与 Marimo** 的重大对决，看 Python 如何通过响应式交互式笔记本（Notebook），打破人与数据之间的最后一道屏障。敬请期待！
+                            </p>
+
+                            <hr class="wechat-hr">
+                            <p class="wechat-footer">
+                                <strong>收看更多最硬核、最生动的 AI 时代前沿技术解析，欢迎关注【我的公众号】。点个“在看”，我们下期再见！</strong>
+                            </p>
+
+                        </div>
+
+                        <!-- WeChat Article Footer Links -->
+                        <div class="wechat-bottom-info">
+                            <span>阅读 10万+</span>
+                            <div class="wechat-bottom-actions">
+                                <span>👍 2480</span>
+                                <span>✨ 1120</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right: Admin Controls & Asset Dashboard -->
+            <section class="dashboard-section">
+                
+                <!-- Tab Controls -->
+                <div class="card tabs-card">
+                    <div class="tab-header">
+                        <button class="tab-btn active" data-tab="edit">📝 基础参数编辑</button>
+                        <button class="tab-btn" data-tab="blocks">📖 段落深度编辑</button>
+                        <button class="tab-btn" data-tab="assets">🎨 视觉素材库</button>
+                        <button class="tab-btn" data-tab="copy">📋 一键复制导出</button>
+                    </div>
+                </div>
+
+                <!-- Tab 1: Live Editor -->
+                <div class="tab-content active" id="tab-edit">
+                    <div class="card">
+                        <h3>✍️ 模拟器文本修改</h3>
+                        <div class="form-group">
+                            <label for="inputTitleSelect">📌 选择文章预设款式</label>
+                            <select id="inputTitleSelect" class="form-control">
+                                <option value="A">款式 A (爆款技术科普风): Rust 强力注入！Pydantic V3 暴涨 20 倍性能，数据工作流迎来“骨架重塑”？</option>
+                                <option value="B">款式 B (深度架构解析风): 告别 C 扩展！Pydantic V3 正式并入 Rust 核心：数据流水线的“类型炼金术”与 SDA 革命</option>
+                                <option value="C">款式 C (智能体前沿风): 智能体大脑的“交响指挥家”：为什么 Prefect 3.0 + Pydantic AI 成为 2026 年 Agent 架构首选？</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCustomTitle">✍️ 自定义文章标题 (可在上方选择或直接在此修改)</label>
+                            <textarea id="inputCustomTitle" class="form-control" rows="2" style="font-family: inherit; font-size: 0.95rem; font-weight: 500; resize: vertical;" placeholder="输入您自己拟定的个性化标题..."></textarea>
+                            <button id="btnAiSuggestTitle" class="btn btn-secondary btn-sm" style="margin-top: 8px; width: 100%;">🤖 让 Agent 推荐爆款标题款式 (Agent Suggestions)</button>
+                            <div id="aiTitleSuggestions" style="display: none; margin-top: 10px; background: rgba(0,0,0,0.2); border: 1px dashed var(--border-color); border-radius: 8px; padding: 10px; flex-direction: column; gap: 8px;">
+                                <span style="font-size: 0.75rem; color: var(--accent-gold); font-weight: bold; display: flex; align-items: center; gap: 4px;">✨ Agent 智能拟定标题 (点击任一直接采用):</span>
+                                <div class="ai-suggested-item" style="font-size: 0.8rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px; cursor: pointer; transition: var(--transition-quick);" data-title="Pydantic V3 底层全部 Rust 化！千万级数据校验毫秒达成，2026 编排技术格局变天了">🚀 Pydantic V3 底层全部 Rust 化！千万级数据校验毫秒达成，2026 编排技术格局变天了</div>
+                                <div class="ai-suggested-item" style="font-size: 0.8rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px; cursor: pointer; transition: var(--transition-quick);" data-title="解密 2026 数据交响乐：如何用 Dagster 资产血缘与 Prefect 事务重组你的企业管道？">🔗 解密 2026 数据交响乐：如何用 Dagster 资产血缘与 Prefect 事务重组你的企业管道？</div>
+                                <div class="ai-suggested-item" style="font-size: 0.8rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px; cursor: pointer; transition: var(--transition-quick);" data-title="告别凌乱脚本！Pydantic V3 强力并入 Rust，为自主 AI 智能体编排打造钢铁骨架">🧠 告别凌乱脚本！Pydantic V3 强力并入 Rust，为自主 AI 智能体编排打造钢铁骨架</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputAuthor">👤 作者署名</label>
+                                <input type="text" id="inputAuthor" class="form-control" value="作者名">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDate">📅 发布日期</label>
+                                <input type="date" id="inputDate" class="form-control" value="2026-05-30">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAvatarName">🏷️ 公众号名称</label>
+                            <input type="text" id="inputAvatarName" class="form-control" value="我的公众号">
+                        </div>
+                        <div class="info-alert">
+                            <p><strong>💡 提示：</strong> 调整上方字段可实时更新左侧微信模拟器的头部展示，完美模拟真实发布效果！</p>
+                        </div>
+                    </div>
+
+                    <!-- WeChat Credentials Card (.env Creator) -->
+                    <div class="card credentials-card">
+                        <h3>🔑 微信公众号 API 凭证配置</h3>
+                        <p class="subtitle">在这里配置您的公众号凭证，自动生成本地 wechat.env，供推送脚本直接读取。</p>
+                        <div class="form-group">
+                            <label for="inputWechatAppId">🏷️ WeChat AppID (appid)</label>
+                            <input type="text" id="inputWechatAppId" class="form-control" placeholder="输入 wx 开头的 AppID (例如: wx8888888888888888)">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputWechatSecret">🔒 WeChat AppSecret (secret)</label>
+                            <div style="position: relative; display: flex; align-items: center;">
+                                <input type="password" id="inputWechatSecret" class="form-control" placeholder="输入您的 AppSecret (32位字符)">
+                                <button id="btnToggleSecret" class="btn-icon" style="position: absolute; right: 8px; width: 30px; height: 30px; font-size: 0.8rem; border-radius: 4px; border: none; background: transparent; cursor: pointer;" type="button">👁️</button>
+                            </div>
+                        </div>
+                        <button id="btnSaveCredentials" class="btn btn-glow" style="width: 100%;">💾 保存 API 秘钥到本地 wechat.env</button>
+                    </div>
+
+                    <!-- AI Copilot Assistant Dialog Card -->
+                    <div class="card ai-copilot-card">
+                        <h3>🤖 谋士 AI 写作助手</h3>
+                        <p class="subtitle">与 AI 双角色智能协同，协助您润色标题、扩写段落或在线进行文案问答。</p>
+                        
+                        <!-- AI Settings Dropdown (collapsible) -->
+                        <details class="ai-settings-details" style="margin-bottom: 16px; border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; background: rgba(0,0,0,0.15);">
+                            <summary style="cursor: pointer; font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">⚙️ 配置 AI 模型 API (支持自定义接口)</summary>
+                            <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+                                <div class="form-group" style="margin-bottom: 8px;">
+                                    <label style="font-size: 0.75rem;">🌐 API 接口地址 (Base URL)</label>
+                                    <input type="text" id="aiBaseUrl" class="form-control btn-sm" value="https://api.deepseek.com/v1" placeholder="API 地址，例如: https://api.openai.com/v1">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 8px;">
+                                    <label style="font-size: 0.75rem;">🔑 API Key (密钥)</label>
+                                    <input type="password" id="aiApiKey" class="form-control btn-sm" placeholder="输入您的大模型 API Key">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 8px;">
+                                    <label style="font-size: 0.75rem;">🤖 模型名称 (Model)</label>
+                                    <input type="text" id="aiModelName" class="form-control btn-sm" value="deepseek-chat" placeholder="例如: deepseek-chat, gpt-4o">
+                                </div>
+                            </div>
+                        </details>
+                        
+                        <!-- Chat window -->
+                        <div id="aiChatLog" style="height: 180px; overflow-y: auto; background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem;">
+                            <div class="ai-chat-message-ai">
+                                <span style="color: var(--accent-orange); font-weight: 500;">🦊 AI 小助手: </span>
+                                <div style="color: var(--text-main); margin-top: 2px;">嗨~ 我是您的智能写作助理！配置上方的 API Key 即可接通大模型。也可以使用下方的快捷按键让我直接模拟生成哦！</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Prompt Input -->
+                        <div style="display: flex; gap: 8px; position: relative;">
+                            <input type="text" id="aiPromptInput" class="form-control" placeholder="向 AI 提问或要求它润色文案..." style="flex-grow: 1;">
+                            <button id="btnSendAiPrompt" class="btn btn-primary" style="padding: 10px 16px; flex-shrink: 0;">发送</button>
+                        </div>
+                        
+                        <!-- Quick Prompts Toolbar -->
+                        <div style="margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap;">
+                            <button class="btn btn-secondary btn-sm btn-ai-quick" data-prompt="请为关于“现代数据工作流与类型安全”的公众号文章推荐 3 个吸睛的爆款标题款式。">✨ 润色推荐标题</button>
+                            <button class="btn btn-secondary btn-sm btn-ai-quick" data-prompt="帮我为文章写一段吸引人的微信公众号核心导读，字数控制在 150 字以内，文风要专业生动。">📝 扩写核心导读</button>
+                            <button class="btn btn-secondary btn-sm btn-ai-quick" data-prompt="帮我把当前这篇 Pydantic V3 和 2026 年工作流编排的文章提取出 3 个一句话核心硬核结论。">💡 提炼文章结论</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Granular Block Editor -->
+                <div class="tab-content" id="tab-blocks">
+                    <div class="card">
+                        <h3>📖 段落智能分段编辑</h3>
+                        <p class="subtitle">在这里您可以细致调整每个段落、卡片、标题和图文序号。修改将自动实时同步至左侧模拟器！</p>
+                        
+                        <!-- Block insertion toolbar -->
+                        <div class="block-toolbar" style="margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-secondary btn-sm" id="btnAddParagraph">➕ 段落</button>
+                            <button class="btn btn-secondary btn-sm" id="btnAddH2">➕ H2标题</button>
+                            <button class="btn btn-secondary btn-sm" id="btnAddH3">➕ H3标题</button>
+                            <button class="btn btn-secondary btn-sm" id="btnAddQuoteOrange">➕ 橙色引用</button>
+                            <button class="btn btn-secondary btn-sm" id="btnAddQuoteCyan">➕ 青色引用</button>
+                        </div>
+                        
+                        <!-- Scrollable dynamic cards container -->
+                        <div id="blocksContainer" class="blocks-container" style="max-height: 480px; overflow-y: auto; padding-right: 4px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 16px;">
+                            <!-- Dynamic blocks are rendered here by JavaScript -->
+                        </div>
+                        
+                        <!-- CMS Sync Action -->
+                        <div style="margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 16px; display: flex; gap: 12px;">
+                            <button id="btnSaveHeadless" class="btn btn-glow" style="flex: 1;">💾 保存至本地 Headless CMS</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Visual Assets Hub -->
+                <div class="tab-content" id="tab-assets">
+                    <div class="card">
+                        <h3>🎨 高清原创插图库 (已为您生成)</h3>
+                        <p class="subtitle">您可以点击查看大图或下载这些高清素材，直接上传至微信公众号后台。</p>
+                        
+                        <div class="assets-grid">
+                            
+                            <!-- Asset Card 1 -->
+                            <div class="asset-card">
+                                <div class="asset-thumb">
+                                    <img src="data_orchestration_cover.png" alt="Cover Thumbnail">
+                                </div>
+                                <div class="asset-info">
+                                    <h4>插图 1：公众号大图封面</h4>
+                                    <p class="asset-desc"><strong>Prompt:</strong> Glowing 3D crystal skeletal grid suspending organic, pulsing energy nodes...</p>
+                                    <div class="asset-actions">
+                                        <button class="btn btn-sm btn-primary view-highres" data-img="data_orchestration_cover.png">👁️ 预览高清</button>
+                                        <a href="data_orchestration_cover.png" download="data_orchestration_cover.png" class="btn btn-sm btn-secondary">💾 下载图片</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Asset Card 2 -->
+                            <div class="asset-card">
+                                <div class="asset-thumb">
+                                    <img src="pydantic_rust_core.png" alt="Rust Core Thumbnail">
+                                </div>
+                                <div class="asset-info">
+                                    <h4>插图 2：Pydantic V3 Rust Core</h4>
+                                    <p class="asset-desc"><strong>Prompt:</strong> A powerful high-tech cybernetic core representing the Pydantic V3 Rust validation engine...</p>
+                                    <div class="asset-actions">
+                                        <button class="btn btn-sm btn-primary view-highres" data-img="pydantic_rust_core.png">👁️ 预览高清</button>
+                                        <a href="pydantic_rust_core.png" download="pydantic_rust_core.png" class="btn btn-sm btn-secondary">💾 下载图片</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Asset Card 3 -->
+                            <div class="asset-card">
+                                <div class="asset-thumb">
+                                    <img src="woodland_roadmap.png" alt="Roadmap Thumbnail">
+                                </div>
+                                <div class="asset-info">
+                                    <h4>插图 3：Woodland Roadmap 学习路径</h4>
+                                    <p class="asset-desc"><strong>Prompt:</strong> A friendly, charming, watercolor illustration of a woodland pathway with little foxes...</p>
+                                    <div class="asset-actions">
+                                        <button class="btn btn-sm btn-primary view-highres" data-img="woodland_roadmap.png">👁️ 预览高清</button>
+                                        <a href="woodland_roadmap.png" download="woodland_roadmap.png" class="btn btn-sm btn-secondary">💾 下载图片</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Copy Toolkit -->
+                <div class="tab-content" id="tab-copy">
+                    <div class="card">
+                        <h3>📋 一键复制导出面板</h3>
+                        <p class="subtitle">选择您想要的格式，点击下方按钮一键复制整篇文章，然后直接贴入公众号后台编辑器！</p>
+                        
+                        <div class="copy-options">
+                            <button id="btnCopyHtml" class="btn btn-glow">📋 复制公众号富文本 (含样式 HTML)</button>
+                            <button id="btnCopyMarkdown" class="btn btn-secondary">📝 复制干净 Markdown</button>
+                            <button id="btnCopyText" class="btn btn-secondary">💬 复制纯文本内容</button>
+                        </div>
+                        
+                        <div class="copy-preview-area">
+                            <label>📄 复制内容预览</label>
+                            <textarea id="copyTextarea" class="form-control" readonly></textarea>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>💡 公众号排版小贴士</h3>
+                        <ul class="tips-list">
+                            <li><strong>一键贴入：</strong> 点击“复制公众号富文本”按钮，在微信公众平台编辑器中直接 <code>Ctrl + V</code>，文章的字体、颜色、引用框和表格样式都将完美导入！</li>
+                            <li><strong>图片上传：</strong> 请前往 <strong>【视觉素材库】</strong> 下载这 3 张高清原创图片，在公众号后台对应位置上传即可！</li>
+                            <li><strong>本地保存：</strong> 在 <strong>【段落深度编辑】</strong> 里点击“保存至本地 Headless CMS”，即可把当前文章导出到本地 <code>output/</code> 目录，再配合 <code>push_to_draft.py</code> 一键推送到公众号草稿箱！</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+        
+        <!-- Image Viewer Lightbox Modal -->
+        <div class="lightbox" id="lightboxModal">
+            <span class="close-lightbox" id="closeLightbox">&times;</span>
+            <img class="lightbox-content" id="lightboxImg">
+        </div>
+        
+        <!-- Clipboard Success Toast -->
+        <div class="toast" id="clipboardToast">
+            <span class="toast-icon">✅</span>
+            <span class="toast-message">文章已复制到剪贴板！</span>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

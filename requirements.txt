@@ -1,0 +1,8 @@
+# 浏览器模式（双击启动创作中心.bat / local_server.py）仅依赖 Python 标准库，无需安装任何包。
+#
+# 以下依赖按需安装：
+#   - 自行打包独立 EXE（package_desktop_app.py）：pywebview、pyinstaller
+#   - 一键推送公众号草稿（push_to_draft.py）：requests
+pywebview>=4.0
+pyinstaller>=6.0
+requests>=2.28
