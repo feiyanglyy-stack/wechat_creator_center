@@ -1,0 +1,52 @@
+name: Build Windows EXE
+
+# 何时触发：
+#   - 手动从 Actions 页面点击运行（workflow_dispatch）
+#   - 推送形如 v1.0.0 的 tag 时自动构建，并把 EXE 附加到对应 Release
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write   # 需要写权限才能把产物附加到 Release
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pywebview pyinstaller
+
+      - name: Build EXE (PyInstaller, onefile)
+        run: pyinstaller --noconfirm wechat_creator_center.spec
+
+      - name: Show build output
+        run: dir dist
+
+      # 任何触发都会上传一份可下载的构建产物（保留 90 天）
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wechat_creator_center-windows-exe
+          path: dist/wechat_creator_center.exe
+          if-no-files-found: error
+
+      # 仅当由 tag 触发时，把 EXE 附加到对应的 GitHub Release
+      - name: Attach EXE to Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/wechat_creator_center.exe

@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="assets/banner.png" alt="谋士智能创作中心 · WeChat Creator Center">
+</p>
+
+<p align="center"><b>中文</b> · <a href="README.en.md">English</a></p>
+
 # 🔮 谋士智能创作中心 · WeChat Creator Center
 
 一个面向**微信公众号深度原创文章**的桌面级协同写作套件，集 **「移动端排版实时预览」**、**「段落卡片化智能编辑」**、**「AI 写作助手协同」** 与 **「一键 API 直推草稿箱」** 于一体。
